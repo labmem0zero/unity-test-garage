@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -19,6 +21,8 @@ public class Input : MonoBehaviour
     private Transform _player;
     private Transform _inHands;
     private Transform _world;
+    public Material outline;
+    private Dictionary<int, Material> mats = new ();
 
     void Start()
     {
@@ -69,13 +73,35 @@ public class Input : MonoBehaviour
     {
         _highlight = obj;
         _highlightName = obj.name;
-        var rnd = _highlight.GetComponentInChildren<Renderer>();
-        rnd.material.color = new Color(0.5f, 1, 0.3f);
+        var rndrs = _highlight.GetComponentsInChildren<Renderer>();
+        foreach (var r in rndrs)
+        {
+            var m=r.material;
+            try
+            {
+                mats.Add(r.GetInstanceID(), r.material);
+                print(mats[r.GetInstanceID()]);
+            }
+            catch{}
+            r.material = outline;
+            r.material.mainTexture = m.mainTexture;
+            // r.material.color=new Color(0.5f, 1, 0.3f); 
+        }
+        // var rnd = _highlight.GetComponentInChildren<Renderer>();
+        // rnd.material.color = new Color(0.5f, 1, 0.3f);
     }
 
     private void HighlightOFF()
     {
-        _highlight.GetComponentInChildren<Renderer>().material.color = new Color(1, 1, 1);
+        var rndrs = _highlight.GetComponentsInChildren<Renderer>();
+        foreach (var r in rndrs)
+        {
+            var mat = mats[r.GetInstanceID()];
+            r.material = mat;
+            mats.Remove(r.GetInstanceID());
+            // r.material.color = new Color(1, 1, 1);
+        }
+        // _highlight.GetComponentInChildren<Renderer>().material.color = new Color(1, 1, 1);
         _highlight = null;
         _highlightName = "";
     }
