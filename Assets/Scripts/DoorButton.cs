@@ -24,10 +24,4 @@ public class DoorButton : MonoBehaviour
         _clicked = false;
         transform.position.Set(_btnUp, transform.position.y, transform.position.z);
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

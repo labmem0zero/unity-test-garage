@@ -90,9 +90,6 @@ public class Input : MonoBehaviour
             if (!String.IsNullOrEmpty(_highlightName) && (_highlightName != obj.name || hit.distance>_useDistance))
             {
                 HighlightOFF();
-                // _highlight.GetComponentInChildren<Renderer>().material.color = new Color(1, 1, 1);
-                // _highlight = null;
-                // _highlightName = "";
             }
 
             if (obj.CompareTag("Usable") && hit.distance <= _useDistance)
@@ -107,10 +104,6 @@ public class Input : MonoBehaviour
             if (obj.CompareTag("Item") && hit.distance<=_useDistance && !_inHands)
             {
                 HighlightON(obj);
-                // _highlight = obj;
-                // _highlightName = obj.name;
-                // var rnd = _highlight.GetComponentInChildren<Renderer>();
-                // rnd.material.color = new Color(0.5f, 1, 0.3f);
                 if (UnityEngine.Input.GetKeyDown("e"))
                 {
                     takenItem=Use(obj);   
