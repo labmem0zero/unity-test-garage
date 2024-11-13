@@ -73,35 +73,16 @@ public class Input : MonoBehaviour
     {
         _highlight = obj;
         _highlightName = obj.name;
-        var rndrs = _highlight.GetComponentsInChildren<Renderer>();
-        foreach (var r in rndrs)
-        {
-            var m=r.material;
-            try
-            {
-                mats.Add(r.GetInstanceID(), r.material);
-                print(mats[r.GetInstanceID()]);
-            }
-            catch{}
-            r.material = outline;
-            r.material.mainTexture = m.mainTexture;
-            // r.material.color=new Color(0.5f, 1, 0.3f); 
-        }
-        // var rnd = _highlight.GetComponentInChildren<Renderer>();
-        // rnd.material.color = new Color(0.5f, 1, 0.3f);
+        var rnd = _highlight.GetComponentInChildren<Renderer>();
+        rnd.materials=rnd.materials.Append(outline).ToArray();
     }
 
     private void HighlightOFF()
     {
-        var rndrs = _highlight.GetComponentsInChildren<Renderer>();
-        foreach (var r in rndrs)
-        {
-            var mat = mats[r.GetInstanceID()];
-            r.material = mat;
-            mats.Remove(r.GetInstanceID());
-            // r.material.color = new Color(1, 1, 1);
-        }
-        // _highlight.GetComponentInChildren<Renderer>().material.color = new Color(1, 1, 1);
+        var rnd = _highlight.GetComponentInChildren<Renderer>();
+        var mats = rnd.materials;
+        var newMats = mats.Where(m => !m.name.Contains("Outline", StringComparison.InvariantCultureIgnoreCase)).ToArray();
+        rnd.materials = newMats;
         _highlight = null;
         _highlightName = "";
     }
@@ -120,18 +101,22 @@ public class Input : MonoBehaviour
 
             if (obj.CompareTag("Usable") && hit.distance <= _useDistance)
             {
-                HighlightON(obj);
                 if (UnityEngine.Input.GetKeyDown("e"))
-                {
-                   Use(obj);   
+                { 
+                    print("Use");
+                    Use(obj);   
                 }
-            }
 
-            if (obj.CompareTag("Item") && hit.distance<=_useDistance && !_inHands)
+                if (String.IsNullOrEmpty(_highlightName))
+                {
+                    HighlightON(obj);
+                }
+            }else if (obj.CompareTag("Item") && hit.distance<=_useDistance && !_inHands)
             {
                 HighlightON(obj);
                 if (UnityEngine.Input.GetKeyDown("e"))
                 {
+                    print("Take");
                     takenItem=Use(obj);   
                 }
             }
