@@ -74,7 +74,7 @@ MonoBehaviour:
   m_MinSize: {x: 400, y: 100}
   m_MaxSize: {x: 32384, y: 16192}
   vertical: 0
-  controlID: 144
+  controlID: 139
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -120,8 +120,8 @@ MonoBehaviour:
     y: 0
     width: 335
     height: 744
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 201, y: 221}
+  m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 17}
   m_Panes:
   - {fileID: 17}
@@ -471,9 +471,9 @@ MonoBehaviour:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 79}
-    m_SelectedIDs: 605d0000
-    m_LastClickedID: 23904
-    m_ExpandedIDs: 000000005e5d0000605d0000625d0000645d0000665d0000685d000000ca9a3bffffff7f
+    m_SelectedIDs: 765d0000
+    m_LastClickedID: 23926
+    m_ExpandedIDs: 00000000745d0000765d0000785d00007a5d00007c5d00007e5d000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -501,7 +501,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000005e5d0000605d0000625d0000645d0000665d0000685d0000
+    m_ExpandedIDs: 00000000745d0000765d0000785d00007a5d00007c5d00007e5d0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -528,7 +528,7 @@ MonoBehaviour:
   m_ListAreaState:
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
-    m_HadKeyboardFocusLastEvent: 1
+    m_HadKeyboardFocusLastEvent: 0
     m_ExpandedInstanceIDs: c6230000b265000024a1000000000000ba750000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -640,10 +640,10 @@ MonoBehaviour:
     m_OverlaysVisible: 1
   m_SceneHierarchy:
     m_TreeViewState:
-      scrollPos: {x: 0, y: 50}
-      m_SelectedIDs: eed1feff
-      m_LastClickedID: -77330
-      m_ExpandedIDs: ccf9ffff3afaffff30fbffff1c5a0000
+      scrollPos: {x: 0, y: 0}
+      m_SelectedIDs: 
+      m_LastClickedID: 0
+      m_ExpandedIDs: 0efbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -1047,7 +1047,7 @@ MonoBehaviour:
   m_Rotation:
     m_Target: {x: 0.0021434363, y: 0.98633516, z: -0.16153063, w: -0.0059862705}
     speed: 2
-    m_Value: {x: 0.00214452, y: 0.9868338, z: -0.1616123, w: -0.005989297}
+    m_Value: {x: 0.0021434363, y: 0.98633516, z: -0.16153063, w: -0.0059862705}
   m_Size:
     m_Target: 2.46246
     speed: 2

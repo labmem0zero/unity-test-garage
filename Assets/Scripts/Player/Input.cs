@@ -85,10 +85,7 @@ public class Input : MonoBehaviour
             catch{}
             r.material = outline;
             r.material.mainTexture = m.mainTexture;
-            // r.material.color=new Color(0.5f, 1, 0.3f); 
         }
-        // var rnd = _highlight.GetComponentInChildren<Renderer>();
-        // rnd.material.color = new Color(0.5f, 1, 0.3f);
     }
 
     private void HighlightOFF()
@@ -99,9 +96,7 @@ public class Input : MonoBehaviour
             var mat = mats[r.GetInstanceID()];
             r.material = mat;
             mats.Remove(r.GetInstanceID());
-            // r.material.color = new Color(1, 1, 1);
         }
-        // _highlight.GetComponentInChildren<Renderer>().material.color = new Color(1, 1, 1);
         _highlight = null;
         _highlightName = "";
     }
